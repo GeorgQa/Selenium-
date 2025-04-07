@@ -16,8 +16,18 @@ class TestAddGroup(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, "admin", "secret")
         self.create_group(wd)
-        self.filling_in_group_data(wd, name="Test_test_ran_123", header="Test_test_ran_123", houther="Test_test_ran_123")
+        self.filling_in_group_data(wd, "Test_test_ran_123", "Test_test_ran_123", "Test_test_ran_123")
         self.save_and_end(wd)
+
+    def test_no_data_group(self):
+        wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd, "admin", "secret")
+        self.create_group(wd)
+        self.filling_in_group_data(wd, "", "", "")
+        self.save_and_end(wd)
+
+
 
         # Сохранение и выход
     def save_and_end(self, wd):
