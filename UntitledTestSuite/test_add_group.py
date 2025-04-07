@@ -5,6 +5,9 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
+import group
+from group import Group
+
 
 class TestAddGroup(unittest.TestCase):
     def setUp(self):
@@ -16,7 +19,7 @@ class TestAddGroup(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, "admin", "secret")
         self.create_group(wd)
-        self.filling_in_group_data(wd, "Test_test_ran_123", "Test_test_ran_123", "Test_test_ran_123")
+        self.filling_in_group_data(wd, group)
         self.save_and_end(wd)
 
     def test_no_data_group(self):
@@ -35,17 +38,17 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element(By.LINK_TEXT, "groups").click()
         wd.find_element(By.LINK_TEXT, "Logout").click()
 
-    def filling_in_group_data(self, wd, name, header , houther):
+    def filling_in_group_data(self, wd, name, header , fouther):
         # Заполнение данных группы
         wd.find_element(By.NAME, "group_name").click()
         wd.find_element(By.NAME, "group_name").clear()
-        wd.find_element(By.NAME, "group_name").send_keys(name)
+        wd.find_element(By.NAME, "group_name").send_keys(group.name)
         wd.find_element(By.NAME, "group_header").click()
         wd.find_element(By.NAME, "group_header").clear()
-        wd.find_element(By.NAME, "group_header").send_keys(header)
+        wd.find_element(By.NAME, "group_header").send_keys(group.header)
         wd.find_element(By.NAME, "group_footer").click()
         wd.find_element(By.NAME, "group_footer").clear()
-        wd.find_element(By.NAME, "group_footer").send_keys(houther)
+        wd.find_element(By.NAME, "group_footer").send_keys(group.fouther)
 
     def create_group(self, wd):
         # Создание группы
