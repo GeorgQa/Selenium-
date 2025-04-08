@@ -4,33 +4,29 @@ from selenium import webdriver
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-
-import group
-from group import Group
+from lib.base_case import BaseCase
 
 
-class TestAddGroup(unittest.TestCase):
-    def setUp(self):
+class TestAddGroup():
+    def setup_method(self):
         self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(30)
 
     def test_add_group(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd, "admin", "secret")
+        BaseCase.login(wd)
         self.create_group(wd)
-        self.filling_in_group_data(wd, group)
+        self.filling_in_group_data(wd, "new_group", "Header", "vtgtr")
         self.save_and_end(wd)
 
     def test_no_data_group(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd, "admin", "secret")
+        BaseCase.login(wd)
         self.create_group(wd)
-        self.filling_in_group_data(wd, "", "", "")
+        self.filling_in_group_data(wd, " ", " ", " ")
         self.save_and_end(wd)
-
-
 
         # Сохранение и выход
     def save_and_end(self, wd):
@@ -38,32 +34,26 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element(By.LINK_TEXT, "groups").click()
         wd.find_element(By.LINK_TEXT, "Logout").click()
 
-    def filling_in_group_data(self, wd, name, header , fouther):
+    def filling_in_group_data(self, wd, name, header, fouther):
         # Заполнение данных группы
-        wd.find_element(By.NAME, "group_name").click()
-        wd.find_element(By.NAME, "group_name").clear()
-        wd.find_element(By.NAME, "group_name").send_keys(group.name)
-        wd.find_element(By.NAME, "group_header").click()
-        wd.find_element(By.NAME, "group_header").clear()
-        wd.find_element(By.NAME, "group_header").send_keys(group.header)
-        wd.find_element(By.NAME, "group_footer").click()
-        wd.find_element(By.NAME, "group_footer").clear()
-        wd.find_element(By.NAME, "group_footer").send_keys(group.fouther)
+        wd.find_element(By.NAME, "group_name").send_keys(name)
+        wd.find_element(By.NAME, "group_header").send_keys(header)
+        wd.find_element(By.NAME, "group_footer").send_keys(fouther)
 
     def create_group(self, wd):
         # Создание группы
         wd.find_element(By.LINK_TEXT, "groups").click()
         wd.find_element(By.NAME, "new").click()
 
-    def login(self, wd, username = "admin", password =  "secret"):
-        # Логин
-        wd.find_element(By.NAME, "user").click()
-        wd.find_element(By.NAME, "user").clear()
-        wd.find_element(By.NAME, "user").send_keys(username)
-        wd.find_element(By.NAME, "pass").click()
-        wd.find_element(By.NAME, "pass").clear()
-        wd.find_element(By.NAME, "pass").send_keys(password)
-        wd.find_element(By.XPATH, "//input[@value='Login']").click()
+    # def login(self, wd, username = "admin", password =  "secret"):
+    #     # Логин
+    #     wd.find_element(By.NAME, "user").click()
+    #     wd.find_element(By.NAME, "user").clear()
+    #     wd.find_element(By.NAME, "user").send_keys(username)
+    #     wd.find_element(By.NAME, "pass").click()
+    #     wd.find_element(By.NAME, "pass").clear()
+    #     wd.find_element(By.NAME, "pass").send_keys(password)
+    #     wd.find_element(By.XPATH, "//input[@value='Login']").click()
 
     def open_home_page(self, wd):
         # Открытие основной страницы
