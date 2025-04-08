@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
 import unittest
-from selenium.webdriver.common.by import By
-from lib.base_case import BaseCase
+
 from faker import Faker
+
+from lib.base_case import BaseCase
+from selenium import webdriver
+from selenium.common.exceptions import (NoAlertPresentException,                   NoSuchElementException)
+from selenium.webdriver.common.by import By
+
 
 class TestAddContact(unittest.TestCase):
     def setUp(self):
@@ -19,7 +21,7 @@ class TestAddContact(unittest.TestCase):
         BaseCase.open_home_page(wd)
         #Авторизация
         BaseCase.login(wd)
-        #Дейстивия с формой
+        #Дейстивия с формойS
         self.filling_out_form(wd, "Имя_имя", "Тест_фамилия", "Иванов", "Тестовый ник", "Тестовая компания")
         #Сохранение и выход
         self.save_and_end(wd)

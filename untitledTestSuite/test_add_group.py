@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import unittest
-from selenium import webdriver
-from selenium.common.exceptions import NoAlertPresentException
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
+
 from lib.base_case import BaseCase
+from selenium import webdriver
+from selenium.common.exceptions import (NoAlertPresentException,
+                                        NoSuchElementException)
+from selenium.webdriver.common.by import By
 
 
 class TestAddGroup():

@@ -3,3 +3,4 @@ requests
 lxml
 xml.etree.ElementTree
 faker
+isort
