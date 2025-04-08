@@ -14,7 +14,7 @@ class TestAddGroup():
 
     def test_add_group(self):
         wd = self.wd
-        self.open_home_page(wd)
+        BaseCase.open_home_page(wd)
         BaseCase.login(wd)
         self.create_group(wd)
         self.filling_in_group_data(wd, "new_group", "Header", "vtgtr")
@@ -22,7 +22,7 @@ class TestAddGroup():
 
     def test_no_data_group(self):
         wd = self.wd
-        self.open_home_page(wd)
+        BaseCase.open_home_page(wd)
         BaseCase.login(wd)
         self.create_group(wd)
         self.filling_in_group_data(wd, " ", " ", " ")
@@ -54,10 +54,6 @@ class TestAddGroup():
     #     wd.find_element(By.NAME, "pass").clear()
     #     wd.find_element(By.NAME, "pass").send_keys(password)
     #     wd.find_element(By.XPATH, "//input[@value='Login']").click()
-
-    def open_home_page(self, wd):
-        # Открытие основной страницы
-        wd.get("http://localhost/addressbook/")
 
     def is_element_present(self, how, what):
         try: self.wd.find_element(by=how, value=what)
