@@ -12,8 +12,6 @@ class TestAddContact(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
 
-
-
     def test_add_contact(self):
         #вызов драйвера
         wd = self.driver
@@ -31,17 +29,11 @@ class TestAddContact(unittest.TestCase):
         wd = self.driver
         BaseCase.open_home_page(wd)
         BaseCase.login(wd)
-        # self.filling_out_form(wd,"Имя_имя", "Тест_фамилия", "last_name", "Тестовый ник", "Тестовая компания")
         self.filling_out_form(wd, firstName=fake.first_name(),   middleName=fake.middle_name(), lastName= fake.last_name() , nick_name="Тестовый ник", company= fake.company())
 
 
         self.save_and_end(wd)
 
-    def generate_random_contact(self, fake  ):
-        fake  = Faker('ru_Ru')
-        last_name = fake.last_name()  # Фамилия
-        first_name = fake.first_name()  # Имя
-        middle_name = fake.middle_name()
 
     def filling_out_form(self, wd, firstName, middleName, lastName, nick_name, company, group_add="Test_test_ran_123"):
         wd.find_element(By.LINK_TEXT, "add new").click()
