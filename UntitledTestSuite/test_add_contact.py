@@ -27,17 +27,17 @@ class TestAddContact(unittest.TestCase):
         self.save_and_end(wd)
 
     def test_add_contact_random(self):
+        fake = Faker("ru_Ru")
         wd = self.driver
-        # Переход на Url для авторизации
         BaseCase.open_home_page(wd)
-        # Авторизация
         BaseCase.login(wd)
-        # Дейстивия с формой
-        self.filling_out_form(wd,"Имя_имя", "Тест_фамилия", "last_name", "Тестовый ник", "Тестовая компания")
-        # Сохранение и выход
+        # self.filling_out_form(wd,"Имя_имя", "Тест_фамилия", "last_name", "Тестовый ник", "Тестовая компания")
+        self.filling_out_form(wd, firstName=fake.first_name(),   middleName=fake.middle_name(), lastName= fake.last_name() , nick_name="Тестовый ник", company= fake.company())
+
+
         self.save_and_end(wd)
 
-    def generate_random_contact(self, fake  )
+    def generate_random_contact(self, fake  ):
         fake  = Faker('ru_Ru')
         last_name = fake.last_name()  # Фамилия
         first_name = fake.first_name()  # Имя
