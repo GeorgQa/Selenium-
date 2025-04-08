@@ -8,7 +8,13 @@ from selenium import webdriver
 from selenium.common.exceptions import (NoAlertPresentException,                   NoSuchElementException)
 from selenium.webdriver.common.by import By
 
+from faker import Faker
 
+from faker import Faker
+from faker import Faker
+from faker import Faker
+from faker import Faker
+from faker import Faker
 class TestAddContact(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
