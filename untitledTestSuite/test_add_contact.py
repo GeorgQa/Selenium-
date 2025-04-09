@@ -5,16 +5,11 @@ from faker import Faker
 
 from lib.base_case import BaseCase
 from selenium import webdriver
-from selenium.common.exceptions import (NoAlertPresentException,                   NoSuchElementException)
+from selenium.common.exceptions import (NoAlertPresentException,
+                                        NoSuchElementException)
 from selenium.webdriver.common.by import By
 
-from faker import Faker
 
-from faker import Faker
-from faker import Faker
-from faker import Faker
-from faker import Faker
-from faker import Faker
 class TestAddContact(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -38,7 +33,6 @@ class TestAddContact(unittest.TestCase):
         BaseCase.open_home_page(wd)
         BaseCase.login(wd)
         self.filling_out_form(wd, firstName=fake.first_name(),   middleName=fake.middle_name(), lastName= fake.last_name() , nick_name="Тестовый ник", company= fake.company())
-
 
         self.save_and_end(wd)
 
@@ -98,5 +92,4 @@ class TestAddContact(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-if __name__ == "__main__":
-    unittest.main()
+
