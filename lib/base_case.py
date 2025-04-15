@@ -10,9 +10,13 @@ class BaseCase:
             wd = self.wd
             wd.get("http://localhost/addressbook/")
 
+        @staticmethod
+        def open_group_page(self):
+            wd = self.wd
+            wd.find_element(By.LINK_TEXT, "groups").click()
 
         @staticmethod
-        def create_group(self):
+        def create(self):
             # Создание группы
             wd = self.wd
             wd.find_element(By.LINK_TEXT, "groups").click()
@@ -36,3 +40,12 @@ class BaseCase:
         @staticmethod
         def destroy(self):
             self.wd.quit()
+
+        @staticmethod
+        def delete_first_group(self):
+            wd = self.wd
+            self.open_group_page()
+            #select
+            wd.find_element(By.NAME, "selected[]").click()
+            #delete
+            wd.find_element(By.NAME, "delete").click()
