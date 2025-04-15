@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import unittest
 import pytest
 
 from lib.base_case import BaseCase
@@ -49,3 +50,6 @@ class TestAddGroup():
     def tearDown(self):
         self.BaseCase.destroy()
 
+
+if __name__ == "__main__":
+    unittest.main()
