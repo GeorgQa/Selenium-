@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
 import unittest
+import pytest
 
 from lib.base_case import BaseCase
 from selenium import webdriver
 from selenium.common.exceptions import (NoAlertPresentException,
                                         NoSuchElementException)
-from selenium.webdriver.common.by import By
+
+@pytest.fixture
+def b_case(request):
+    fixture  = BaseCase()
+    request.add.finaluzer(fixture.destroy)
+    return fixture
+
 
 
 class TestAddGroup():
@@ -41,7 +48,7 @@ class TestAddGroup():
     
 
     def tearDown(self):
-        self.wd.quit()
+        self.BaseCase.destroy()
 
 
 if __name__ == "__main__":

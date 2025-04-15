@@ -35,3 +35,6 @@ class BaseCase:
             wd.find_element(By.LINK_TEXT, "groups").click()
             wd.find_element(By.LINK_TEXT, "Logout").click()
 
+        @staticmethod
+        def destroy(self):
+            self.wd.quit()
