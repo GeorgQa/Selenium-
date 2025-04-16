@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 import unittest
 import pytest
-from selenium.webdriver.common.by import By
 
 from lib.applications import Applications
-from selenium import webdriver
-from selenium.common.exceptions import (NoAlertPresentException,
-                                        NoSuchElementException)
 
 from lib.session import SessionHelper
 
