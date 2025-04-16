@@ -4,7 +4,7 @@ import pytest
 from faker import Faker
 
 
-from lib.contacts import Сontact
+from fixture.contacts import Сontact
 
 @pytest.fixture
 def contact_app(request):
@@ -32,7 +32,11 @@ def test_add_contact_random(contact_app):
     fake = Faker("ru_Ru")
     contact_app.open_home_page()
     contact_app.login()
-    contact_app.filling_out_form( firstName=fake.first_name(),   middleName=fake.middle_name(), lastName= fake.last_name() , nick_name=fake.last_name_female(), company= fake.company())
+    contact_app.filling_out_form( firstName=fake.first_name(),
+                                  middleName=fake.middle_name(),
+                                  lastName= fake.last_name() ,
+                                  nick_name=fake.last_name_female(),
+                                  company= fake.company())
     contact_app.save_and_end()
 
 

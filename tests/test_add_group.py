@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-import unittest
 import pytest
 
-from lib.applications import Applications
-
-from lib.session import SessionHelper
+from fixture.applications import Applications
 
 
 @pytest.fixture
@@ -30,5 +27,3 @@ def test_no_data_group(app):
     app.logout()
 
 
-if __name__ == "__main__":
-    unittest.main()

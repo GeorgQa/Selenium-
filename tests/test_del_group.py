@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.common.exceptions import (NoAlertPresentException,
                                         NoSuchElementException)
 
-from lib.session import SessionHelper
+from fixture.session import SessionHelper
 
 
 class TestAddGroup():
