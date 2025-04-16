@@ -1,23 +1,27 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from fixture.session import SessionHelper
+
 
 class Applications:
 
 
         def __init__(self):
-           self.wd = webdriver.Chrome()
-           self.wd.implicitly_wait(60)
+            self.Session = None
+            self.wd = webdriver.Chrome()
+            self.wd.implicitly_wait(60)
+            self.session = SessionHelper(self)
 
-        def logout(self):
-            wd = self.wd
-            wd.find_element(By.LINK_TEXT, "Logout").click()
+        # def logout(self):
+        #     wd = self.wd
+        #     wd.find_element(By.LINK_TEXT, "Logout").click()
 
-        def login(self):
-            wd = self.wd
-            wd.find_element(By.NAME, "user").send_keys("admin")
-            wd.find_element(By.NAME, "pass").send_keys("secret")
-            wd.find_element(By.ID, "LoginForm").submit()
+        # def login(self):
+        #     wd = self.wd
+        #     wd.find_element(By.NAME, "user").send_keys("admin")
+        #     wd.find_element(By.NAME, "pass").send_keys("secret")
+        #     wd.find_element(By.ID, "LoginForm").submit()
 
         def open_home_page(self):
             # Открытие основной страницы
