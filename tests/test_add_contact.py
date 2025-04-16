@@ -3,7 +3,7 @@ import unittest
 
 from faker import Faker
 
-from lib.base_case import BaseCase
+from lib.applications import BaseCase
 from selenium import webdriver
 from selenium.common.exceptions import (NoAlertPresentException,
                                         NoSuchElementException)
