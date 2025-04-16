@@ -14,7 +14,7 @@ class BaseCase:
             wd.find_element(By.LINK_TEXT, "groups").click()
 
         @staticmethod
-        def create_group(wd):
+        def create_group(self):
             # Создание группы
             wd = self.wd
             wd.find_element(By.LINK_TEXT, "groups").click()
