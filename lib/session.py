@@ -5,7 +5,7 @@ class SessionHelper:
 
 
 
-    def Logout(self):
+    def logout(self):
         wd = self.wd
         wd.find_element(By.LINK_TEXT, "Logout").click()
 
