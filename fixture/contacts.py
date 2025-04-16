@@ -1,12 +1,11 @@
-from selenium import webdriver
+
 from selenium.webdriver.common.by import By
 
 
 class Сontact:
 
-    def __init__(self):
-           self.wd = webdriver.Chrome()
-           self.wd.implicitly_wait(60)
+    def __init__(self, app):
+        self.app = app
 
     def filling_out_form(self, firstName,
                          middleName,
@@ -20,7 +19,7 @@ class Сontact:
                          aday="20",
                          amonth="July",
                          a_year="2020"):
-        wd = self.wd
+        wd = self.app.wd
         wd.find_element(By.LINK_TEXT, "add new").click()
         wd.find_element(By.NAME, "firstname").send_keys(firstName)
         wd.find_element(By.NAME, "middlename").send_keys(middleName)
@@ -43,20 +42,19 @@ class Сontact:
         wd.find_element(By.NAME, "new_group").send_keys(group_add)
 
     def save_and_end(self):
-        wd = self.wd
+        wd = self.app.wd
         wd.find_element(By.NAME, "submit").click()
-        wd.find_element(By.LINK_TEXT, "Logout").click()
 
     def destroy(self):
-        self.wd.quit()
+        self.app.wd.quit()
 
     def open_home_page(self):
         # Открытие основной страницы
-        wd = self.wd
+        wd = self.app.wd
         wd.get("http://localhost/addressbook/")
 
-    def login(self):
-        wd = self.wd
-        wd.find_element(By.NAME, "user").send_keys("admin")
-        wd.find_element(By.NAME, "pass").send_keys("secret")
-        wd.find_element(By.ID, "LoginForm").submit()
+    # def login(self):
+    #     wd = self.app.wd
+    #     wd.find_element(By.NAME, "user").send_keys("admin")
+    #     wd.find_element(By.NAME, "pass").send_keys("secret")
+    #     wd.find_element(By.ID, "LoginForm").submit()

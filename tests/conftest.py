@@ -3,7 +3,6 @@ import pytest
 from fixture.applications import Applications
 
 
-
 @pytest.fixture(scope= "session")
 def app(request):
     fixture = Applications()
