@@ -1,14 +1,4 @@
-# -*- coding: utf-8 -*-
-import pytest
 
-from fixture.applications import Applications
-
-
-@pytest.fixture
-def app(request):
-    fixture = Applications()
-    request.addfinalizer(fixture.destroy)
-    return  fixture
 
 def test_add_group(app):
     app.open_home_page()
