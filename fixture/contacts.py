@@ -1,4 +1,4 @@
-from selenium.common import NoSuchElementException, TimeoutException
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -60,8 +60,6 @@ class Contact:
         wd.find_element(By.LINK_TEXT, "home").click()
         wd.find_element(By.XPATH, '//*[@id="maintable"]/tbody/tr[2]/td[8]/a/img').click()
         wd.find_element(By.XPATH, '//*[@id="content"]/form[2]/input[2]').click()
-        #Есть страница которая появляется на 1 секунду и не всегда прогружается надо и как можно покрыть тестами ее
-        # wd.find_element(By.PARTIAL_LINK_TEXT, "Delete")
 
     def two_record_modification(self):
         wd = self.app.wd

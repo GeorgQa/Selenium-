@@ -16,7 +16,7 @@ class GroupHelper:
     def create(self):
         # Создание группы
         wd = self.app.wd
-        wd.find_element(By.LINK_TEXT, "groups").click()
+        self.open_group_page()
         wd.find_element(By.NAME, "new").click()
 
     def filling_in_group_data(self, group):

@@ -1,19 +1,12 @@
+from model.group import Group
 
 
 def test_add_group(app):
-    app.open_home_page()
-    app.session.login()
     app.group.create()
-    app.group.filling_in_group_data( "new_group", "Header", "vtgtr")
+    app.group.filling_in_group_data(Group(name="new_group ", header="Header ", footer="vtgtr "))
     app.group.save()
-    app.session.logout()
 
 def test_no_data_group(app):
-    app.open_home_page()
-    app.session.login()
     app.group.create()
-    app.group.filling_in_group_data( " ", " ", " ")
+    app.group.filling_in_group_data(Group(name = " ", header = " ", footer = " "))
     app.group.save()
-    app.session.logout()
-
-
