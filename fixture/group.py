@@ -52,9 +52,16 @@ class GroupHelper:
     def modify_first_group(self,new_group_data):
         wd = self.app.wd
         self.open_group_page()
+        if self.count() == 0:
+            self.create(Group(name="test"))
         self.select_first_group()
-        #Открыть форму модификации
         wd.find_element(By.NAME, "edit").click()
         self.filling_in_group_data(new_group_data)
         wd.find_element(By.NAME, "update").click()
         wd.find_element(By.LINK_TEXT, "group page").click()
+
+    def count(self):
+        wd = self.app.wd
+        self.open_group_page()
+        count_elements = wd.find_elements(By.NAME, "selected[]")
+        elements_count = len(count_elements)
