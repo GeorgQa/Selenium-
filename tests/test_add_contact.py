@@ -48,7 +48,6 @@ def test_contact_modification(app):
     app.open_home_page()
     app.session.login()
     app.contacts.two_record_modification()
-
     app.contacts.filling_out_form(firstName= f"Тестовое имя {ranodom_number}",
                                   middleName= f"Тестовая фамилия",
                                   lastName= f"Олегович",
