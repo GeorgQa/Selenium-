@@ -14,19 +14,10 @@ class Contact:
         wd = self.app.wd
         wd.find_element(By.LINK_TEXT, "add new").click()
 
-    def filling_out_form(self, firstName,
-                         middleName,
-                         lastName,
-                         nick_name,
-                         company,
-                         group_add= "Test_test_ran_123",
-                         day_birthday="16",
-                         mouht_bday="December",
-                         birtday_year="2001",
-                         aday="20",
-                         amonth="July",
-                         a_year="2020"):
+    def filling_out_form(self, firstName, middleName, lastName, nick_name, company, group_add, day_birthday,
+                         mouht_bday="December", birtday_year="2001", aday="20", amonth="July", a_year="2020"):
         wd = self.app.wd
+
         wd.find_element(By.NAME, "firstname").clear()
         wd.find_element(By.NAME, "firstname").send_keys(firstName)
         wd.find_element(By.NAME, "middlename").clear()
@@ -82,4 +73,16 @@ class Contact:
         wd = self.app.wd
         wd.find_element(By.XPATH, '//*[@id="content"]/form[1]/input[21]').click()   #///*[@id="content"]/form[1]/input[21] //*[@id="content"]/form[1]/input[21]
         wd.find_element(By.PARTIAL_LINK_TEXT, "home page").click()
+
+    def filling_in_contacts(self, contact):
+        wd = self.app.wd
+        self.filler.check_fill_value("firstname", contact.firstname)
+        self.filler.check_fill_value("lastname", contact.lastname)
+        self.filler.check_fill_value("nick_name", contact.nick_name)
+        self.filler.check_fill_value("company", contact.company)
+        self.filler.check_fill_value("group_add", contact.group_add)
+        self.filler.check_fill_value("bday", contact.day_birthday)
+
+
+
 

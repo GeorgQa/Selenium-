@@ -1,6 +1,7 @@
 from selenium import webdriver
 
 from fixture.contacts import Contact
+from fixture.filling_form import FieldFiller
 from fixture.group import GroupHelper
 from fixture.session import SessionHelper
 
@@ -14,6 +15,8 @@ class Applications:
             self.session = SessionHelper(self)
             self.group = GroupHelper(self)
             self.contacts = Contact(self)
+            self.filler = FieldFiller(self)
+
 
 
         def open_home_page(self):

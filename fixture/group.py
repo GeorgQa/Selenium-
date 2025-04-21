@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+
+from fixture.filling_form import FieldFiller
 from model.group import Group
 
 
@@ -24,12 +26,12 @@ class GroupHelper:
         self.check_fill_value("group_header", group.header)
         self.check_fill_value("group_footer", group.footer)
 
-    def check_fill_value(self, filed_name, text):
-        wd = self.app.wd
-        if text is not None:
-            wd.find_element(By.NAME, filed_name).click()
-            wd.find_element(By.NAME, filed_name).clear()
-            wd.find_element(By.NAME, filed_name).send_keys(text)
+    # def check_fill_value(self, filed_name, text):
+    #     wd = self.app.wd
+    #     if text is not None:
+    #         wd.find_element(By.NAME, filed_name).click()
+    #         wd.find_element(By.NAME, filed_name).clear()
+    #         wd.find_element(By.NAME, filed_name).send_keys(text)
 
     def save(self):
         wd = self.app.wd
