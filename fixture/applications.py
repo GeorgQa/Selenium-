@@ -1,7 +1,6 @@
 from selenium import webdriver
 
 from fixture.contacts import Contact
-
 from fixture.group import GroupHelper
 from fixture.session import SessionHelper
 
@@ -15,6 +14,13 @@ class Applications:
             self.session = SessionHelper(self)
             self.group = GroupHelper(self)
             self.contacts = Contact(self)
+
+        def is_valid(self):
+            try:
+                self.wd.current_url
+                return True
+            except:
+                return False
 
 
 
